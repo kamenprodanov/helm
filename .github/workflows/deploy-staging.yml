@@ -20,15 +20,15 @@ jobs:
       - name: Configure AWS Credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::<AWS_ACCOUNT_ID>:role/<OIDC_ROLE_NAME>
+          role-to-assume: arn:aws:iam::673605974923:role/githubactions-helm
           aws-region: eu-central-1  # change as needed
 
       - name: Update kubeconfig for EKS
         run: |
           aws eks update-kubeconfig \
             --region eu-central-1 \
-            --name <STAGING_CLUSTER_NAME> \
-            --role-arn arn:aws:iam::<AWS_ACCOUNT_ID>:role/<OIDC_ROLE_NAME>
+            --name helmdeploy \
+            --role-arn arn:aws:iam::673605974923:role/githubactions-helm
 
       - name: Install Helm (if not already present)
         uses: azure/setup-helm@v4
@@ -37,7 +37,7 @@ jobs:
 
       - name: Deploy Helm Chart
         run: |
-          helm upgrade --install my-nginx-release ./path/to/chart \
+          helm upgrade --install my-nginx-release ./helm \
             --namespace staging \
             --create-namespace
 
