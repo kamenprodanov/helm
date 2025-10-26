@@ -39,7 +39,7 @@ jobs:
         run: |
           helm upgrade --install my-nginx-release . \
             --namespace staging \
-            --create-namespace
+            --create-namespace \
             --atomic \
             --wait \
             --set image.tag=${{ github.sha }}  
