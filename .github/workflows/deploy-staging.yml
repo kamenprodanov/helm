@@ -1,9 +1,9 @@
 name: Deploy to Staging EKS
 
 on:
-  push:
-    branches:
-      - main   # or staging branch
+  #push:
+   # branches:
+    #  - main   # or staging branch
   workflow_dispatch:
 
 permissions:
@@ -40,4 +40,5 @@ jobs:
           helm upgrade --install my-nginx-release . \
             --namespace staging \
             --create-namespace \
-            --set image.tag=${{ github.sha }}
+            --wait \
+            --atomic
