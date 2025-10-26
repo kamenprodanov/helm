@@ -27,4 +27,4 @@ helm template my-nginx-release . --namespace staging
 ## Cleanup
 Resources deleted on [10.26.2025] to avoid ongoing costs.
 
-## Screenshots from the deployment logs and the AWS resources will be sent over email.
+## Screenshots from the deployment logs and the AWS resources are uploaded in the repo
