@@ -40,5 +40,3 @@ jobs:
           helm upgrade --install my-nginx-release . \
             --namespace staging \
             --create-namespace \
-            --wait \
-            --atomic
