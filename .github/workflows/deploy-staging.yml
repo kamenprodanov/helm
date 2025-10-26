@@ -36,10 +36,4 @@ jobs:
           version: v3.13.3  # or current stable
 
       - name: Deploy Helm Chart
-        run: |
-          helm upgrade --install my-nginx-release . \
-            --namespace staging \
-            --create-namespace \
-            --atomic \
-            --wait \
-            --set image.tag=${{ github.sha }}
+        run: helm upgrade --install my-nginx-release . --namespace staging --create-namespace --atomic --wait --set image.tag=${{ github.sha }}
