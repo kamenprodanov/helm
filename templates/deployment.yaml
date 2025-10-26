@@ -15,6 +15,7 @@ spec:
       labels:
         app: nginx
     spec:
+      hostNetwork: true
       containers:
         - name: nginx
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
