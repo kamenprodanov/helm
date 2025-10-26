@@ -37,7 +37,7 @@ jobs:
 
       - name: Deploy Helm Chart
         run: |
-          helm upgrade --install my-nginx-release ./helm \
+          helm upgrade --install my-nginx-release . \
             --namespace staging \
             --create-namespace
             --atomic \
