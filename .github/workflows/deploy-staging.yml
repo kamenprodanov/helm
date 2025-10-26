@@ -28,7 +28,6 @@ jobs:
           aws eks update-kubeconfig \
             --region eu-central-1 \
             --name helmdeploy \
-            --role-arn arn:aws:iam::673605974923:role/githubactions-helm
 
       - name: Install Helm (if not already present)
         uses: azure/setup-helm@v4
@@ -40,5 +39,8 @@ jobs:
           helm upgrade --install my-nginx-release ./helm \
             --namespace staging \
             --create-namespace
+            --atomic \
+            --wait \
+            --set image.tag=${{ github.sha }}
 
           echo test, and deploy your project.
