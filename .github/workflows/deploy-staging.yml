@@ -42,6 +42,4 @@ jobs:
             --create-namespace \
             --atomic \
             --wait \
-            --set image.tag=${{ github.sha }}     
-
-          echo test, and deploy your project.
+            --set image.tag=${{ github.sha }}
