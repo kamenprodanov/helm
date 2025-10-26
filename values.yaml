@@ -2,7 +2,7 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: 673605974923.dkr.ecr.eu-central-1.amazonaws.com/nginx
   tag: "latest"
   pullPolicy: IfNotPresent
 
